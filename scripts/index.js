@@ -1,4 +1,3 @@
-// @todo: Темплейт карточки
 function createCard(card) {
   const template = document
     .querySelector("#card-template")
@@ -59,14 +58,9 @@ function handleCardFormSubmit(evt) {
   closeModal(cardPopup);
 }
 //https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg
-// @todo: DOM узлы
 const profilePopup = document.querySelector(".popup_type_edit");
 const cardPopup = document.querySelector(".popup_type_new-card");
 const imagePopup = document.querySelector(".popup_type_image");
-
-// profilePopup.classList.add("popup_is-animated");
-// cardPopup.classList.add("popup_is-animated");
-// imagePopup.classList.add("popup_is-animated");
 
 [profilePopup, cardPopup, imagePopup].forEach((el) =>
   el.classList.add("popup_is-animated")
@@ -121,12 +115,6 @@ imagePopup.querySelector(".popup__close").addEventListener("click", () => {
   closeModal(imagePopup);
 });
 
-//Карточки
-
-// @todo: Функция создания карточки
-
-// @todo: Функция удаления карточки
-
-// @todo: Вывести карточки на страницу
 const list = document.querySelector(".places__list");
 initialCards.forEach((card) => list.append(createCard(card)));
+alert(Math.floor(4.9));
