@@ -24,6 +24,10 @@
   border: 1px solid gray;
   color: gray;
   font-weight: lighter;
+}
+
+.popup__button-disabled:hover {
+  background-color: white;
   cursor: default;
 }
 
