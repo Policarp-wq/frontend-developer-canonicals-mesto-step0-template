@@ -8,23 +8,22 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/logo.svg"
+          src="<%=require('./images/logo.svg')%>"
           alt="Логотип проекта место"
           class="logo header__logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <div
-            class="profile__image"
-            style="background-image: url('./images/avatar.jpg')"
-          ></div>
+          <!-- prettier-ignore -->
+          <div class="profile__image" style="background-image: url(<%=require('./images/avatar.jpg')%>);"></div>
+          <!-- prettier-ignore -->
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button"></button>
@@ -45,19 +44,27 @@
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="edit-profile">
             <input
+              id="profile-name"
               type="text"
               name="name"
               class="popup__input popup__input_type_name"
               placeholder="Имя"
+              minlength="2"
+              maxlength="40"
               required
             />
+            <span class="profile-name-error popup__input-error"></span>
             <input
+              id="profile-description"
               type="text"
               name="description"
               class="popup__input popup__input_type_description"
               placeholder="Занятие"
+              minlength="2"
+              maxlength="200"
               required
             />
+            <span class="profile-description-error popup__input-error"></span>
             <button type="submit" class="button popup__button">
               Сохранить
             </button>
@@ -70,19 +77,25 @@
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form" name="new-place">
             <input
+              id="card-name"
               type="text"
               name="place-name"
               class="popup__input popup__input_type_card-name"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
               required
             />
+            <span class="popup__input-error"></span>
             <input
+              id="card-url"
               type="url"
               name="link"
               class="popup__input popup__input_type_url"
               placeholder="Ссылка на картинку"
               required
             />
+            <span class="popup__input-error"></span>
             <button type="submit" class="button popup__button">
               Сохранить
             </button>
@@ -97,8 +110,6 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js" defer></script>
 
     <template id="card-template">
       <li class="places__item card">

@@ -1,3 +1,9 @@
+import "../pages/index.css";
+
+import { initialCards } from "./cards";
+import { openModal, closeModal } from "./modal";
+import { enableValidation } from "./validate";
+
 function createCard(card) {
   const template = document
     .querySelector("#card-template")
@@ -31,14 +37,6 @@ function createCard(card) {
   });
 
   return template;
-}
-
-function openModal(popup) {
-  popup.classList.add("popup_is-opened");
-}
-
-function closeModal(popup) {
-  popup.classList.remove("popup_is-opened");
 }
 
 function handleProfileFormSubmit(evt) {
@@ -117,4 +115,3 @@ imagePopup.querySelector(".popup__close").addEventListener("click", () => {
 
 const list = document.querySelector(".places__list");
 initialCards.forEach((card) => list.append(createCard(card)));
-alert(Math.floor(4.9));
