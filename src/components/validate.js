@@ -5,9 +5,13 @@ function hasInvalidInput(inputs) {
 }
 
 function toggleButtonState(inputs, button, validationSettings) {
-  if (hasInvalidInput(inputs))
+  if (hasInvalidInput(inputs)) {
     button.classList.add(validationSettings.buttonOffClass);
-  else button.classList.remove(validationSettings.buttonOffClass);
+    button.disabled = true;
+  } else {
+    button.classList.remove(validationSettings.buttonOffClass);
+    button.disabled = false;
+  }
 }
 
 function applyInvalidStyle(input, errorElement, validationSettings) {
