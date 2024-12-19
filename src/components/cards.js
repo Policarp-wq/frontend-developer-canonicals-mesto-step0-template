@@ -25,4 +25,18 @@ const initialCards = [
   },
 ];
 
-export { initialCards };
+function createCard(card) {
+  const template = document
+    .querySelector("#card-template")
+    .content.querySelector(".card")
+    .cloneNode(true);
+
+  const img = template.querySelector(".card__image");
+  img.src = card.link;
+  img.alt = card.name;
+  template.querySelector(".card__title").textContent = card.name;
+
+  return template;
+}
+
+export { createCard, initialCards };

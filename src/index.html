@@ -8,7 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto</title>
-    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
+    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="page__content">
@@ -22,7 +22,12 @@
       <main class="content">
         <section class="profile page__section">
           <!-- prettier-ignore -->
-          <div class="profile__image" style="background-image: url(<%=require('./images/avatar.jpg')%>);"></div>
+          <!-- style="background-image: url(<%=require('./images/avatar.jpg')%>);" -->
+          <div class="profile__image">
+            <div class="profile__image-overlay">
+              <img src="./images/edit-icon.svg" alt="" class="overlay-image" />
+            </div>
+          </div>
           <!-- prettier-ignore -->
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -102,6 +107,26 @@
           </form>
         </div>
       </div>
+      <div class="popup popup_type_new-avatar">
+        <div class="popup__content">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Обновить аватар</h3>
+          <form class="popup__form" name="new-avatar" novalidate>
+            <input
+              id="avatar-url"
+              type="url"
+              name="place-name"
+              class="popup__input popup__input_type_avatar-url"
+              placeholder="Ссылка"
+              required
+            />
+            <span class="avatar-url-error popup__input-error"></span>
+            <button type="submit" class="button popup__button">
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
       <div class="popup popup_type_image">
         <div class="popup__content popup__content_content_image">
           <button type="button" class="popup__close"></button>
@@ -114,12 +139,19 @@
     <template id="card-template">
       <li class="places__item card">
         <img class="card__image" src="" alt="" />
-        <button type="button" class="card__delete-button"></button>
+        <button
+          type="button"
+          class="card__delete-button card__delete-button-disabled"
+        ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
+          <div class="card__likes">
+            <p class="card__likes-cnt"></p>
+            <button type="button" class="card__like-button"></button>
+          </div>
         </div>
       </li>
     </template>
+    <script type="module" src="./components/index.js"></script>
   </body>
 </html>
